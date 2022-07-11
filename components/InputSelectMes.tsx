@@ -1,15 +1,19 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { useContext, useState } from 'react';
+import { ComprasContext } from '../context/getCompras';
 
 export default function BasicSelect() {
-  const [mes, setMes] = React.useState('');
+  const [mes, setMes] = useState('');
+  const context = useContext(ComprasContext)
 
   const handleChange = (event: SelectChangeEvent) => {
+    console.log('inputSelect', event.target.value as string)
     setMes(event.target.value as string);
+    context.fecthData(event.target.value as string)
   };
 
   return (
@@ -23,13 +27,13 @@ export default function BasicSelect() {
           label="mes"
           onChange={handleChange}
         >
-          <MenuItem value={1}>Janeiro</MenuItem>
-          <MenuItem value={2}>Fevereiro</MenuItem>
-          <MenuItem value={3}>Março</MenuItem>
-          <MenuItem value={4}>Abril</MenuItem>
-          <MenuItem value={5}>Maio</MenuItem>
-          <MenuItem value={6}>Junho</MenuItem>
-          <MenuItem value={7}>Julho</MenuItem>
+          <MenuItem value={"Janeiro"}>Janeiro</MenuItem>
+          <MenuItem value={"Fevereiro"}>Fevereiro</MenuItem>
+          <MenuItem value={"Março"}>Março</MenuItem>
+          <MenuItem value={"Abril"}>Abril</MenuItem>
+          <MenuItem value={"Maio"}>Maio</MenuItem>
+          <MenuItem value={"Junho"}>Junho</MenuItem>
+          <MenuItem value={"Julho"}>Julho</MenuItem>
         </Select>
       </FormControl>
     </Box>
