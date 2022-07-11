@@ -20,12 +20,12 @@ export default function DenseTable() {
 
 
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+    <TableContainer component={Paper} sx={{ minWidth: 375 , maxWidth: "80%", margin: "auto", borderBottom: "none"}}>
+      <Table sx={{ minWidth: 375 , maxWidth: "80%", margin: "auto", borderBottom: "none"}} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
             <TableCell align="left">Nome do Cliente</TableCell>
-            <TableCell align="right">Quantidade de compras</TableCell>
+            <TableCell align="right">Qntd de compras/Mês</TableCell>
           </TableRow>
         </TableHead>
         {list &&
