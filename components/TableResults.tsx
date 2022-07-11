@@ -8,17 +8,15 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { ComprasContext } from '../context/getCompras'
 
-
-
 export default function DenseTable() {
   const [data, setData] = useState([]);
 
   const context = useContext(ComprasContext)
-  const { list } = context
+  const { list }: any = context
 
-    useEffect(() => {
-      setData(list)
-    }, [list])
+  useEffect(() => {
+    setData(list)
+  }, [list])
 
 
   return (
@@ -32,9 +30,11 @@ export default function DenseTable() {
         </TableHead>
         {list &&
           <TableBody>
-            {list.map((row) => (
+            {list.map((row: {
+              count: number; id: string, cliente: string
+            }) => (
               <TableRow
-                key={row.id}
+                key={row.cliente}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">

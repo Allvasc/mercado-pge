@@ -1,7 +1,11 @@
 import React, { createContext, useEffect, useState } from 'react';
 import api from '../pages/api/mercado-api'
 
-export const ComprasContext = createContext({})
+interface IComprasContext {
+  list: any[];
+  fecthData: (month: string) => Promise<void>;
+ }
+export const ComprasContext = createContext({} as IComprasContext)
 
 interface TypeProps {
   children: React.ReactNode

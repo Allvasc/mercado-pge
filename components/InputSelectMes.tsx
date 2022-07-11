@@ -11,9 +11,8 @@ export default function BasicSelect() {
   const context = useContext(ComprasContext)
 
   const handleChange = (event: SelectChangeEvent) => {
-    console.log('inputSelect', event.target.value as string)
-    setMes(event.target.value as string);
-    context.fecthData(event.target.value as string)
+    setMes(event.target.value);
+    context.fecthData(event.target.value)
   };
 
   return (
